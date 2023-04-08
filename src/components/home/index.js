@@ -6,7 +6,7 @@ import { findUserByIdThunk } from "../users/users-thunk";
 import { getBlogsByUserIdThunk } from "../blog/blog-thunks";
 import { parseTime } from "../blog/parseTime";
 import { userLikesFoodThunk } from "../likes/likes-thunks";
-import RandomRecipes from "../random-recipe";
+import RandomRecipes from "../random-drink";
 
 const Home = () => {
   const dispatch = useDispatch();

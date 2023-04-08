@@ -12,14 +12,14 @@ import Profile from "./components/users/profile";
 import Navbar from "./components/navbar";
 import Home from "./components/home";
 import Search from "./components/search";
-import MealDetails from "./components/meal-details";
+import DrinkDetails from "./components/drink-details";
 import Blog from "./components/blog";
 import BlogCreate from "./components/blog/blog-create";
 import BlogDetails from "./components/blog/blog-details";
 import ProtectedBlogCreate from "./components/blog/protected-blog-create";
 import searchReducer from "./components/search/search-reducer";
-import randomMealReducer from "./components/random-recipe/randomMealReducer";
-import mealDetailsReducer from "./components/meal-details/meal-details-reducer";
+import randomDrinksReducer from "./components/random-drink/randomDrinkReducer";
+import drinkDetailsReducer from "./components/drink-details/drink-details-reducer";
 import BlogReducer from "./components/blog/blog-reducer";
 import usersReducer from "./components/users/users-reducer";
 import reviewsReducer from "./components/reviews/reviews-reducer";
@@ -30,8 +30,8 @@ import ProtectedAdminDashboard from "./components/admin/protected-admin-dashboar
 const store = configureStore({
   reducer: {
     search: searchReducer,
-    randomMeals: randomMealReducer,
-    mealDetails: mealDetailsReducer,
+    randomDrinks: randomDrinksReducer,
+    drinkDetails: drinkDetailsReducer,
     blog: BlogReducer,
     users: usersReducer,
     reviews: reviewsReducer,
@@ -50,7 +50,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/search" element={<Search />} />
               <Route path="/search/:searchName" element={<Search />} />
-              <Route path="/meal/details/:mid" element={<MealDetails />} />
+              <Route path="/meal/details/:mid" element={<DrinkDetails />} />
               <Route path="/blog" element={<Blog />} />
               <Route
                 path="/admin"

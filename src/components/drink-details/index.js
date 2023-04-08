@@ -3,7 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useDispatch, useSelector } from "react-redux";
-import { mealDetailsThunks } from "./meal-details-thunks";
+import { drinkDetailsThunks } from "./drink-details-thunks";
 import YoutubeEmbed from "./youtube-embed";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -16,22 +16,22 @@ import {
 import CommentComponent from "./comment-component";
 import Container from "react-bootstrap/Container";
 
-const MealDetails = () => {
+const DrinkDetails = () => {
   const { currentUser } = useSelector((state) => state.users);
-  const { meal, loading } = useSelector((state) => state.mealDetails);
+  const { drink, loading } = useSelector((state) => state.drinkDetails);
   const { reviews } = useSelector((state) => state.reviews);
   const dispatch = useDispatch();
   const { mid } = useParams();
   const [comment, setComment] = useState("");
 
   useEffect(() => {
-    dispatch(mealDetailsThunks(mid));
+    dispatch(drinkDetailsThunks(mid));
     dispatch(findReviewsByFoodThunk(mid));
   }, []);
 
   const postMealComment = () => {
     const review = {
-      idMeal: meal.idMeal,
+      idDrink: drink.idDrink,
       review: comment,
     };
     dispatch(createReviewThunk(review));
@@ -50,32 +50,32 @@ const MealDetails = () => {
   }
 
   const ingredientList = [20];
-  ingredientList[0] = meal.strMeasure1 + " " + meal.strIngredient1;
-  ingredientList[1] = meal.strMeasure2 + " " + meal.strIngredient2;
-  ingredientList[2] = meal.strMeasure3 + " " + meal.strIngredient3;
-  ingredientList[3] = meal.strMeasure4 + " " + meal.strIngredient4;
-  ingredientList[4] = meal.strMeasure5 + " " + meal.strIngredient5;
-  ingredientList[5] = meal.strMeasure6 + " " + meal.strIngredient6;
-  ingredientList[6] = meal.strMeasure7 + " " + meal.strIngredient7;
-  ingredientList[7] = meal.strMeasure8 + " " + meal.strIngredient8;
-  ingredientList[8] = meal.strMeasure9 + " " + meal.strIngredient9;
-  ingredientList[9] = meal.strMeasure10 + " " + meal.strIngredient10;
-  ingredientList[10] = meal.strMeasure11 + " " + meal.strIngredient11;
-  ingredientList[11] = meal.strMeasure12 + " " + meal.strIngredient12;
-  ingredientList[12] = meal.strMeasure13 + " " + meal.strIngredient13;
-  ingredientList[13] = meal.strMeasure14 + " " + meal.strIngredient14;
-  ingredientList[14] = meal.strMeasure15 + " " + meal.strIngredient15;
-  ingredientList[15] = meal.strMeasure16 + " " + meal.strIngredient16;
-  ingredientList[16] = meal.strMeasure17 + " " + meal.strIngredient17;
-  ingredientList[17] = meal.strMeasure18 + " " + meal.strIngredient18;
-  ingredientList[18] = meal.strMeasure19 + " " + meal.strIngredient19;
-  ingredientList[19] = meal.strMeasure20 + " " + meal.strIngredient20;
+  ingredientList[0] = drink.strMeasure1 + " " + drink.strIngredient1;
+  ingredientList[1] = drink.strMeasure2 + " " + drink.strIngredient2;
+  ingredientList[2] = drink.strMeasure3 + " " + drink.strIngredient3;
+  ingredientList[3] = drink.strMeasure4 + " " + drink.strIngredient4;
+  ingredientList[4] = drink.strMeasure5 + " " + drink.strIngredient5;
+  ingredientList[5] = drink.strMeasure6 + " " + drink.strIngredient6;
+  ingredientList[6] = drink.strMeasure7 + " " + drink.strIngredient7;
+  ingredientList[7] = drink.strMeasure8 + " " + drink.strIngredient8;
+  ingredientList[8] = drink.strMeasure9 + " " + drink.strIngredient9;
+  ingredientList[9] = drink.strMeasure10 + " " + drink.strIngredient10;
+  ingredientList[10] = drink.strMeasure11 + " " + drink.strIngredient11;
+  ingredientList[11] = drink.strMeasure12 + " " + drink.strIngredient12;
+  ingredientList[12] = drink.strMeasure13 + " " + drink.strIngredient13;
+  ingredientList[13] = drink.strMeasure14 + " " + drink.strIngredient14;
+  ingredientList[14] = drink.strMeasure15 + " " + drink.strIngredient15;
+  ingredientList[15] = drink.strMeasure16 + " " + drink.strIngredient16;
+  ingredientList[16] = drink.strMeasure17 + " " + drink.strIngredient17;
+  ingredientList[17] = drink.strMeasure18 + " " + drink.strIngredient18;
+  ingredientList[18] = drink.strMeasure19 + " " + drink.strIngredient19;
+  ingredientList[19] = drink.strMeasure20 + " " + drink.strIngredient20;
   return (
     <div className={"mt-3"}>
       <div className={"mb-2"}>
         <a
           onClick={handleGoBack}
-          href="src/components/meal-details#"
+          href="src/components/meal-details#drink-details"
           className={"text-decoration-none text-secondary"}
         >
           <i className="bi bi-arrow-left me-1"></i>Back
@@ -83,25 +83,25 @@ const MealDetails = () => {
       </div>
       {!loading && (
         <>
-          <h2>{meal.strMeal}</h2>
+          <h2>{drink.strDrink}</h2>
           <h5>
-            <span className="badge bg-secondary">{meal.strArea}</span>{" "}
-            <span className="badge bg-secondary">{meal.strCategory}</span>
+            <span className="badge bg-secondary">{drink.strArea}</span>{" "}
+            <span className="badge bg-secondary">{drink.strCategory}</span>
           </h5>
           <Container>
             <Row>
               <Col sm={"12"} md={"6"}>
                 <img
                   className={"w-100 mb-3"}
-                  alt={"Picture of " + meal.strMeal}
-                  src={meal.strMealThumb}
+                  alt={"Picture of " + drink.strDrink}
+                  src={drink.strDrinkThumb}
                 />
 
                 <h4>Youtube Video:</h4>
-                {meal.strYoutube && (
+                {drink.strYoutube && (
                   <YoutubeEmbed
-                    embedId={meal.strYoutube.substring(
-                      meal.strYoutube.indexOf("=") + 1
+                    embedId={drink.strYoutube.substring(
+                      drink.strYoutube.indexOf("=") + 1
                     )}
                   />
                 )}
@@ -115,8 +115,8 @@ const MealDetails = () => {
                 </ul>
                 <h4>Instructions:</h4>
                 <ol>
-                  {typeof meal.strInstructions !== "undefined" &&
-                    meal.strInstructions
+                  {typeof drink.strInstructions !== "undefined" &&
+                    drink.strInstructions
                       .split("\r\n")
                       .map(
                         (u) =>
@@ -180,4 +180,4 @@ const MealDetails = () => {
   );
 };
 
-export default MealDetails;
+export default DrinkDetails;

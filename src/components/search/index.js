@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { findFoodBySearchTermThunk } from "./search-thunks";
-import MealCard from "../meal-card/mealCard";
+import DrinkCard from "../drink-card/drinkCard";
 import Row from "react-bootstrap/Row";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -37,7 +37,7 @@ const Search = () => {
       </div>
       <Row>
         {recipes &&
-          recipes.map((meal) => <MealCard meal={meal} key={meal.idMeal} />)}
+          recipes.map((meal) => <DrinkCard meal={meal} key={meal.idMeal} />)}
       </Row>
     </>
   );
