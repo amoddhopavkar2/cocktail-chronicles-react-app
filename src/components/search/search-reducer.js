@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { findFoodBySearchTerm } from "../../services/search-service";
+import { findCocktailBySearchTerm } from "../../services/search-service";
 import { findFoodBySearchTermThunk } from "./search-thunks";
 
 const initialState = {

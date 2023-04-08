@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const SEARCH_URL = "https://www.themealdb.com/api/json/v1/1/random.php";
+const SEARCH_URL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
 const fetchRandomMeal = async () => {
   const response1 = await axios.get(`${SEARCH_URL}`);
