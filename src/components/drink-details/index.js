@@ -85,7 +85,7 @@ const DrinkDetails = () => {
         <>
           <h2>{drink.strDrink}</h2>
           <h5>
-            <span className="badge bg-secondary">{drink.strArea}</span>{" "}
+            <span className="badge bg-secondary">{drink.strAlcoholic}</span>{" "}
             <span className="badge bg-secondary">{drink.strCategory}</span>
           </h5>
           <Container>
@@ -96,7 +96,6 @@ const DrinkDetails = () => {
                   alt={"Picture of " + drink.strDrink}
                   src={drink.strDrinkThumb}
                 />
-
               </Col>
               <Col>
                 <h4>Ingredients:</h4>
