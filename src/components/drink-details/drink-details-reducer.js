@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { drinkDetailsThunks } from "./drink-details-thunks";
 
 const initialState = {
-  meal: {},
+  drink: {},
   comments: [],
   loading: false,
 };

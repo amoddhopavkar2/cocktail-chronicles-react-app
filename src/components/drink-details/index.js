@@ -29,7 +29,7 @@ const DrinkDetails = () => {
     dispatch(findReviewsByFoodThunk(mid));
   }, []);
 
-  const postMealComment = () => {
+  const postDrinkComment = () => {
     const review = {
       idDrink: drink.idDrink,
       review: comment,
@@ -97,14 +97,6 @@ const DrinkDetails = () => {
                   src={drink.strDrinkThumb}
                 />
 
-                <h4>Youtube Video:</h4>
-                {drink.strYoutube && (
-                  <YoutubeEmbed
-                    embedId={drink.strYoutube.substring(
-                      drink.strYoutube.indexOf("=") + 1
-                    )}
-                  />
-                )}
               </Col>
               <Col>
                 <h4>Ingredients:</h4>
@@ -157,7 +149,7 @@ const DrinkDetails = () => {
 
                 <Button
                   variant="primary"
-                  onClick={() => postMealComment()}
+                  onClick={() => postDrinkComment()}
                   disabled={comment === ""}
                 >
                   Post Comment

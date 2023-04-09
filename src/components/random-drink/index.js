@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
-import { getRandomCocktail } from "./getRandomCocktail";
+import { getRandomDrink } from "./getRandomDrink";
 import DrinkCard from "../drink-card/drinkCard";
 
 const RandomRecipes = () => {
@@ -9,7 +9,7 @@ const RandomRecipes = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getRandomCocktail());
+    dispatch(getRandomDrink());
   }, [dispatch]);
 
   console.log(recipes);

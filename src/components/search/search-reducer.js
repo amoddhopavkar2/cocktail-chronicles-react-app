@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { findCocktailBySearchTerm } from "../../services/search-service";
-import { findFoodBySearchTermThunk } from "./search-thunks";
+import { findDrinkBySearchTermThunk } from "./search-thunks";
 
 const initialState = {
   recipes: [],
@@ -11,7 +10,7 @@ const searchReducer = createSlice({
   name: "search",
   initialState,
   extraReducers: {
-    [findFoodBySearchTermThunk.fulfilled]: (state, action) => {
+    [findDrinkBySearchTermThunk.fulfilled]: (state, action) => {
       state.recipes = action.payload;
     },
   },

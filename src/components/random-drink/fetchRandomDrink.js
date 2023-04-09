@@ -2,7 +2,7 @@ import axios from "axios";
 
 const SEARCH_URL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
-const fetchRandomCocktail = async () => {
+const fetchRandomDrink = async () => {
   const response1 = await axios.get(`${SEARCH_URL}`);
   const response2 = await axios.get(`${SEARCH_URL}`);
   const response3 = await axios.get(`${SEARCH_URL}`);
@@ -15,4 +15,4 @@ const fetchRandomCocktail = async () => {
   ];
 };
 
-export default fetchRandomCocktail;
+export default fetchRandomDrink;

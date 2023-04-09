@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getRandomCocktail } from "./getRandomCocktail";
+import { getRandomDrink } from "./getRandomDrink";
 
 const initialState = {
   recipes: [],
@@ -12,11 +12,11 @@ const randomDrinkSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getRandomCocktail.pending, (state) => {
+      .addCase(getRandomDrink.pending, (state) => {
         state.loading = true;
         state.recipes = [];
       })
-      .addCase(getRandomCocktail.fulfilled, (state, { payload }) => {
+      .addCase(getRandomDrink.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.recipes = payload;
       });

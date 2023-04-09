@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { findFoodBySearchTermThunk } from "./search-thunks";
+import { findDrinkBySearchTermThunk } from "./search-thunks";
 import DrinkCard from "../drink-card/drinkCard";
 import Row from "react-bootstrap/Row";
 import { useParams, useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ const Search = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(findFoodBySearchTermThunk(searchTerm));
+    dispatch(findDrinkBySearchTermThunk(searchTerm));
   }, [searchTerm]);
 
   const searchHandle = () => {
@@ -37,7 +37,7 @@ const Search = () => {
       </div>
       <Row>
         {recipes &&
-          recipes.map((meal) => <DrinkCard meal={meal} key={meal.idMeal} />)}
+          recipes.map((drink) => <DrinkCard drink={drink} key={drink.idDrink} />)}
       </Row>
     </>
   );
